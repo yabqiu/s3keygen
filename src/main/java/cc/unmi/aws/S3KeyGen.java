@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkState;
+
 public class S3KeyGen {
 
   private static List<Character> baseChars = new ArrayList<>(62);
@@ -77,18 +80,6 @@ public class S3KeyGen {
     }
 
     return Long.parseLong(result.toString());
-  }
-
-  private static void checkArgument(boolean expression, String errorMessage) {
-    if (!expression) {
-      throw new IllegalArgumentException(errorMessage);
-    }
-  }
-
-  private static void checkState(boolean expression, String errorMessage) {
-    if (!expression) {
-      throw new IllegalStateException(errorMessage);
-    }
   }
 
   private static String reverse(String str) {
